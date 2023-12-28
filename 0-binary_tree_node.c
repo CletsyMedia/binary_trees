@@ -15,16 +15,14 @@
  */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 {
-	binary_tree_t *new;
+	binary_tree_t *newNode = calloc(1, sizeof(binary_tree_t));
 
-	new = malloc(sizeof(binary_tree_t));
-	if (new == NULL)
+	if (newNode == NULL)
 	return (NULL);
 
-	new->n = value;
-	new->parent = parent;
-	new->left = NULL;
-	new->right = NULL;
+	*newNode = (binary_tree_t){.n = value, .parent = parent};
+	return (newNode);
 
-	return (new);
+
+	return (newNode);
 }
