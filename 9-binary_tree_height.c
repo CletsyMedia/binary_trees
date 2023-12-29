@@ -2,7 +2,7 @@
 
 /**
  * binary_tree_height - Measures the height of a binary tree.
- * @root: A pointer to the root node of the binary tree.
+ * @tree: A pointer to the root node of the binary tree.
  *
  * Description: This function calculates the height of the binary tree rooted
  * at the given node. The height is the length of the longest path from the
