@@ -12,15 +12,15 @@
  */
 void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int))
 {
-  if (tree && func)
-  {
-    /* Traverse left subtree */
-    binary_tree_inorder(tree->left, func);
+	if (tree && func)
+	{
+	/* Traverse left subtree */
+	binary_tree_inorder(tree->left, func);
 
-    /* Apply function to current node */
-    func(tree->n);
+	/* Apply function to current node */
+	func(tree->n);
 
-    /* Traverse right subtree */
-    binary_tree_inorder(tree->right, func);
-  }
+	/* Traverse right subtree */
+	binary_tree_inorder(tree->right, func);
+	}
 }
