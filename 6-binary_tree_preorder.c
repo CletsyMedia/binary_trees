@@ -8,7 +8,7 @@
  * Description: This function recursively traverses the binary tree in a
  * pre-order manner, visiting the current node, then the left subtree, and
  * finally the right subtree. For each visited node, the given function
- * 'func' is called.
+ * The 'func' is called.
  */
 void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int))
 {
