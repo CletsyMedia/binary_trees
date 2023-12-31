@@ -29,4 +29,21 @@ size_t depth(const binary_tree_t *tree)
  * Return: A pointer to a leaf node in the tree.
  */
 const binary_tree_t *get_leaf(const binary_tree_t *tree)
+{
+
+}
+
+/**
+ * is_perfect_recursive - Checks if a binary tree is perfect recursively.
+ * @tree: A pointer to the root node of the tree.
+ * @leaf_depth: The depth of a leaf node in the tree.
+ * @level: The current level in the tree.
+ *
+ * Return: 1 if the tree is perfect, 0 otherwise.
+ */
+int is_perfect_recursive(const binary_tree_t *tree,
+                         size_t leaf_depth, size_t level)
+{
+
+}
 
