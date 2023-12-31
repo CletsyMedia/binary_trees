@@ -19,7 +19,7 @@ unsigned char is_leaf(const binary_tree_t *node)
  */
 size_t depth(const binary_tree_t *tree)
 {
-
+  return ((tree && tree->parent) ? 1 + binary_tree_depth(tree->parent) : 0);
 }
 
 /**
