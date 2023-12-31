@@ -8,7 +8,7 @@
  */
 unsigned char is_leaf(const binary_tree_t *node)
 {
-
+	return (node && !node->left && !node->right);
 }
 
 /**
@@ -30,7 +30,9 @@ size_t depth(const binary_tree_t *tree)
  */
 const binary_tree_t *get_leaf(const binary_tree_t *tree)
 {
-
+  if (is_leaf(tree) == 1)
+		return (tree);
+	return (tree->left ? get_leaf(tree->left) : get_leaf(tree->right));
 }
 
 /**
