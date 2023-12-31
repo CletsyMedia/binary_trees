@@ -110,9 +110,10 @@ unsigned char is_leaf(const binary_tree_t *node);
 size_t depth(const binary_tree_t *tree);
 /* Finds a leaf node in a binary tree */
 const binary_tree_t *get_leaf(const binary_tree_t *tree);
-
+/* Checks if a binary tree is perfect recursively */
 int is_perfect_recursive(const binary_tree_t *tree,
 		size_t leaf_depth, size_t level);
+/* Checks if a binary tree is perfect */
 int binary_tree_is_perfect(const binary_tree_t *tree);
 
 
