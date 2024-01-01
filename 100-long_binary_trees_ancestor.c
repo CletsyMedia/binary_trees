@@ -2,7 +2,7 @@
 
 size_t depth(const binary_tree_t *tree);
 
-/*
+/**
  * binary_trees_ancestor - finds the lowest common ancestor of two nodes
  * @first: pointer to the first binary tree node
  * @second: pointer to the second binary tree node
