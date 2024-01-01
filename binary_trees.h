@@ -103,7 +103,17 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 /* Find the lowest common ancestor of two nodes in the binary tree */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
 
-/* Perfect Binary tree function */
+/* levelorder Binary tree struct */
+/**
+ * struct node_s - singly linked list
+ * @node: const binary tree node
+ * @next: points to the next node
+ */
+typedef struct node_s
+{
+	const binary_tree_t *node;
+	struct node_s *next;
+} ll;
 
 
 /* Advancing on the project*/
