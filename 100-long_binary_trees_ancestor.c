@@ -58,7 +58,8 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
  * depth - calculates the depth of a binary tree node
  * @tree: pointer to the binary tree node
  *
- * Return: the depth of the given binary tree node
+ * Return: If tree is Null return 0 else the depth of the given
+ * binary tree node
  */
 
 size_t depth(const binary_tree_t *tree)
