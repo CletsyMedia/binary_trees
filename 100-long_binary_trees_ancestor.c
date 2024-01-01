@@ -7,7 +7,8 @@ size_t depth(const binary_tree_t *tree);
  * @first: pointer to the first binary tree node
  * @second: pointer to the second binary tree node
  *
- * Return: a pointer to the lowest common ancestor, or NULL if no common ancestor
+ * Return: a pointer to the lowest common ancestor, or NULL if no common
+ * ancestor
  */
 
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
