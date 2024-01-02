@@ -121,6 +121,8 @@ void pint_push(binary_tree_t *node, levelorder_queue_t *head,
 		levelorder_queue_t **tail, void (*func)(int));
 void pop(levelorder_queue_t **head);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+void push(binary_tree_t *node, levelorder_queue_t *head,
+		levelorder_queue_t **tail)
 
 /* Advancing on the project*/
 
