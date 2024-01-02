@@ -52,21 +52,43 @@ void free_queue(levelorder_queue_t *head)
  * and updates the tail pointer accordingly.
  */
 void push(binary_tree_t *node, levelorder_queue_t *head,
-          levelorder_queue_t **tail)
+	levelorder_queue_t **tail)
 {
-    levelorder_queue_t *newNode;
+	levelorder_queue_t *newNode;
 
-    /* Create a new node for the level-order queue */
-    newNode = create_node(node);
+	/* Create a new node for the level-order queue */
+	newNode = create_node(node);
 
-    /* Handle memory allocation failure */
-    if (newNode == NULL)
-    {
-        free_queue(head);
-        exit(1);
-    }
+	/* Handle memory allocation failure */
+	if (newNode == NULL)
+	{
+	free_queue(head);
+	exit(1);
+	}
 
-    /* Append the new node to the end of the queue */
-    (*tail)->next = newNode;
-    *tail = newNode;
+	/* Append the new node to the end of the queue */
+	(*tail)->next = newNode;
+	*tail = newNode;
+}
+
+/**
+ * pop - Dequeues the front node from a level-order traversal queue.
+ *
+ * @head: Double pointer to the head of the level-order queue.
+ *
+ * This function dequeues the front node from the queue, frees the memory
+ * occupied by the front node, and updates the head pointer accordingly.
+ */
+void pop(levelorder_queue_t **head)
+{
+	levelorder_queue_t *temp;
+
+	/* Get the next node in the queue */
+	temp = (*head)->next;
+
+	/* Free the memory occupied by the front node */
+	free(*head);
+
+	/* Update the head pointer to the next node */
+	*head = temp;
 }
