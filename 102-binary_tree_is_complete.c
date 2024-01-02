@@ -20,3 +20,19 @@ levelorder_queue_t *create_node(binary_tree_t *node)
 
   return (newNode);
 }
+
+/**
+ * free_queue - Frees a level order queue_t queue.
+ * @head: A pointer to the head of the queue.
+ */
+void free_queue(levelorder_queue_t *head)
+{
+  levelorder_queue_t *temp;
+
+  while (head != NULL)
+  {
+    temp = head->next;
+    free(head);
+    head = temp;
+  }
+}
