@@ -92,3 +92,63 @@ void pop(levelorder_queue_t **head)
 	/* Update the head pointer to the next node */
 	*head = temp;
 }
+
+/**
+ * binary_tree_is_complete - Checks if a binary tree is complete.
+ *
+ * @tree: Pointer to the root of the binary tree.
+ *
+ * This function determines whether a binary tree is complete or not by
+ * performing a level-order traversal. It returns 1 if the tree is complete,
+ * and 0 otherwise.
+ */
+int binary_tree_is_complete(const binary_tree_t *tree)
+{
+    levelorder_queue_t *headLvl, *tail_Lvl;
+    unsigned char flag = 0;
+
+    /* Check if the tree is NULL */
+    if (tree == NULL)
+        return (0);
+
+    /* Initialize the level-order traversal queue */
+    headLvl = tail_Lvl = create_node((binary_tree_t *)tree);
+    if (headLvl == NULL)
+        exit(1);
+
+    /* Perform level-order traversal */
+    while (headLvl != NULL)
+    {
+        /* Check left child */
+        if (headLvl->node->left != NULL)
+        {
+            if (flag == 1)
+            {
+                free_queue(headLvl);
+                return (0);
+            }
+            push(headLvl->node->left, headLvl, &tail_Lvl);
+        }
+        else
+            flag = 1;
+
+        /* Check right child */
+        if (headLvl->node->right != NULL)
+        {
+            if (flag == 1)
+            {
+                free_queue(headLvl);
+                return (0);
+            }
+            push(headLvl->node->right, headLvl, &tail_Lvl);
+        }
+        else
+            flag = 1;
+
+        /* Move to the next node in the level-order traversal */
+        pop(&headLvl);
+    }
+
+    /* The tree is complete */
+    return (1);
+}
