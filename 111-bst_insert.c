@@ -11,14 +11,14 @@
  */
 int is_bst_helper(const binary_tree_t *tree, int lo, int hi)
 {
-  if (tree != NULL)
-  {
-    if (tree->n < lo || tree->n > hi)
-      return (0);
-    return (is_bst_helper(tree->left, lo, tree->n - 1) &&
-            is_bst_helper(tree->right, tree->n + 1, hi));
-  }
-  return (1);
+	if (tree != NULL)
+	{
+	if (tree->n < lo || tree->n > hi)
+	return (0);
+	return (is_bst_helper(tree->left, lo, tree->n - 1) &&
+	is_bst_helper(tree->right, tree->n + 1, hi));
+	}
+	return (1);
 }
 
 /**
@@ -29,9 +29,9 @@ int is_bst_helper(const binary_tree_t *tree, int lo, int hi)
  */
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
-  if (tree == NULL)
-    return (0);
-  return (is_bst_helper(tree, INT_MIN, INT_MAX));
+	if (tree == NULL)
+	return (0);
+	return (is_bst_helper(tree, INT_MIN, INT_MAX));
 }
 
 /**
@@ -44,43 +44,43 @@ int binary_tree_is_bst(const binary_tree_t *tree)
  */
 bst_t *bst_insert(bst_t **tree, int value)
 { /* Check if the current node is NULL (empty subtree) */
-  if (*tree == NULL)
-  {
-    /* Create a new node and make it the root if the tree is empty */
-    *tree = binary_tree_node(NULL, value);
-    return (*tree);
-  }
-  /* Check if the tree is a valid BST */
-  if (!binary_tree_is_bst(*tree))
-    return (NULL);
-  /* Check if the value is less than the current node's value */
-  if (value < (*tree)->n)
-  {
-    /* Recursively insert into the left subtree */
-    if ((*tree)->left == NULL)
-    {
-      (*tree)->left = binary_tree_node(*tree, value);
-      return ((*tree)->left);
-    }
-    else
-    {
-      return (bst_insert(&((*tree)->left), value));
-    }
-  }
-  /* Check if the value is greater than the current node's value */
-  else if (value > (*tree)->n)
-  {
-    /* Recursively insert into the right subtree */
-    if ((*tree)->right == NULL)
-    {
-      (*tree)->right = binary_tree_node(*tree, value);
-      return ((*tree)->right);
-    }
-    else
-    {
-      return (bst_insert(&((*tree)->right), value));
-    }
-  }
-  /* If the value is equal, ignore and return NULL (already present) */
-  return (NULL);
+	if (*tree == NULL)
+	{
+	/* Create a new node and make it the root if the tree is empty */
+	*tree = binary_tree_node(NULL, value);
+	return (*tree);
+	}
+	/* Check if the tree is a valid BST */
+	if (!binary_tree_is_bst(*tree))
+	return (NULL);
+	/* Check if the value is less than the current node's value */
+	if (value < (*tree)->n)
+	{
+	/* Recursively insert into the left subtree */
+	if ((*tree)->left == NULL)
+	{
+	(*tree)->left = binary_tree_node(*tree, value);
+	return ((*tree)->left);
+	}
+	else
+	{
+	return (bst_insert(&((*tree)->left), value));
+	}
+	}
+	/* Check if the value is greater than the current node's value */
+	else if (value > (*tree)->n)
+	{
+	/* Recursively insert into the right subtree */
+	if ((*tree)->right == NULL)
+	{
+	(*tree)->right = binary_tree_node(*tree, value);
+	return ((*tree)->right);
+	}
+	else
+	{
+	return (bst_insert(&((*tree)->right), value));
+	}
+	}
+	/* If the value is equal, ignore and return NULL (already present) */
+	return (NULL);
 }
