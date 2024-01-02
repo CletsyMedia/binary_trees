@@ -50,30 +50,30 @@ void free_queue(levelorder_queue_t *head)
 void pint_push(binary_tree_t *node, levelorder_queue_t *head,
 		levelorder_queue_t **tail, void (*func)(int))
 {
-	levelorder_queue_t *new;
+	levelorder_queue_t *newNode;
 
 	func(node->n);
 	if (node->left != NULL)
 	{
-		new = create_node(node->left);
-		if (new == NULL)
+		newNode = create_node(node->left);
+		if (newNode == NULL)
 		{
 			free_queue(head);
 			exit(1);
 		}
-		(*tail)->next = new;
-		*tail = new;
+		(*tail)->next = newNode;
+		*tail = newNode;
 	}
 	if (node->right != NULL)
 	{
-		new = create_node(node->right);
-		if (new == NULL)
+		newNode = create_node(node->right);
+		if (newNode == NULL)
 		{
 			free_queue(head);
 			exit(1);
 		}
-		(*tail)->next = new;
-		*tail = new;
+		(*tail)->next = newNode;
+		*tail = newNode;
 	}
 }
 
