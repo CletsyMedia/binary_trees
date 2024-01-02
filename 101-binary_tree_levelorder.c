@@ -98,18 +98,18 @@ void pop(levelorder_queue_t **head)
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
-	levelorder_queue_t *head, *tail;
+	levelorder_queue_t *headLvl, *tail_lvl;
 
 	if (tree == NULL || func == NULL)
 		return;
 
-	head = tail = create_node((binary_tree_t *)tree);
-	if (head == NULL)
+	headLvl = tail_lvl = create_node((binary_tree_t *)tree);
+	if (headLvl == NULL)
 		return;
 
-	while (head != NULL)
+	while (headLvl != NULL)
 	{
-		pint_push(head->node, head, &tail, func);
-		pop(&head);
+		pint_push(headLvl->node, headLvl, &tail_lvl, func);
+		pop(&headLvl);
 	}
 }
