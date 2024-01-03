@@ -11,13 +11,17 @@
  */
 int is_bst_helper(const binary_tree_t *tree, int min_val, int max_val)
 {
+	/* Check if the tree is not NULL */
 	if (tree != NULL)
 	{
+	/* Check if the node value is within the valid range */
 	if (tree->n < min_val || tree->n > max_val)
 	return (0);
+	/* Recursively check the left and right subtrees with updated range */
 	return (is_bst_helper(tree->left, min_val, tree->n - 1) &&
 	is_bst_helper(tree->right, tree->n + 1, max_val));
 	}
+	/* Return 1 if the tree is NULL */
 	return (1);
 }
 
@@ -29,7 +33,10 @@ int is_bst_helper(const binary_tree_t *tree, int min_val, int max_val)
  */
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
+	/* Check if the tree is NULL */
 	if (tree == NULL)
 	return (0);
+
+
 	return (is_bst_helper(tree, INT_MIN, INT_MAX));
 }
