@@ -12,7 +12,7 @@ int binary_tree_balance(const binary_tree_t *tree)
 	if (!tree)
 	return (0);
 
-	/*
+	/**
 	* Calculate the balance factor by subtracting the height of the
 	* right subtree from the height of the left subtree.
 	*/
