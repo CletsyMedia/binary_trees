@@ -133,9 +133,6 @@ bst_t *bst_remove(bst_t *root, int value);
 
 /* Advancing on the project*/
 
-/* Perform level-order traversal and apply a function to each node's value */
-void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
-
 /* Check if the binary tree is a complete binary tree */
 int binary_tree_is_complete(const binary_tree_t *tree);
 

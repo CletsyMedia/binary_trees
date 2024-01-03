@@ -22,12 +22,12 @@ size_t binary_tree_height(const binary_tree_t *tree)
 
 
 /**
- * binary_tree_balance - Calculates the balance factor of a node.
+ * balance_factor - Calculates the balance factor of a node.
  * @tree: A pointer to the root node of the tree.
  *
  * Return: The balance factor of the node.
  */
-int binary_tree_balance(const binary_tree_t *tree)
+int balance_factor(const binary_tree_t *tree)
 {
 	if (tree == NULL)
 	return (0);
@@ -72,7 +72,7 @@ avl_t *avl_insert_recursive(avl_t **tree, avl_t *parent,
 		return (*tree);
 
 	/* Calculate the balance factor of the current node */
-	bfactor = binary_tree_balance(*tree);
+	bfactor = balance_factor(*tree);
 
 	/* Perform AVL rotations based on the balance factor to maintain balance */
 	if (bfactor > 1 && (*tree)->left->n > value)
