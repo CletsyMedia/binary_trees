@@ -118,11 +118,18 @@ typedef struct node_s
 levelorder_queue_t *create_node(binary_tree_t *node);
 void free_queue(levelorder_queue_t *head);
 void pint_push(binary_tree_t *node, levelorder_queue_t *head,
-		levelorder_queue_t **tail, void (*func)(int));
+							 levelorder_queue_t **tail, void (*func)(int));
 void pop(levelorder_queue_t **head);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 void push(binary_tree_t *node, levelorder_queue_t *head,
-		levelorder_queue_t **tail);
+					levelorder_queue_t **tail);
+
+/* B-tree remove */
+bst_t *inorder_successor(bst_t *root);
+bst_t *bst_delete(bst_t *root, bst_t *node);
+bst_t *bst_remove_recursive(bst_t *root, bst_t *node, int value);
+bst_t *bst_remove(bst_t *root, int value);
+/* B-tree remove end */
 
 /* Advancing on the project*/
 
@@ -182,6 +189,5 @@ int heap_extract(heap_t **root);
 
 /* Convert a binary heap to a sorted array */
 int *heap_to_sorted_array(heap_t *heap, size_t *size);
-
 
 #endif /* _BINARY_TREES_H */
