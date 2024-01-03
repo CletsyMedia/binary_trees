@@ -1,36 +1,25 @@
 #include <stdlib.h>
-#include <stdio.h>
 #include "binary_trees.h"
 
 /**
  * main - Entry point
  *
- * Return: 0 on success, error code on failure
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-    bst_t *tree;
-    int array[] = {
-        79, 47, 68, 87, 84, 91, 21, 32, 34, 2,
-        20, 22, 98, 1, 62, 95};
-    size_t n = sizeof(array) / sizeof(array[0]);
+    binary_tree_t *root;
 
-    tree = array_to_bst(array, n);
-    if (!tree)
-        return (1);
-    binary_tree_print(tree);
+    root = binary_tree_node(NULL, 98);
 
-    tree = bst_remove(tree, 79);
-    printf("Removed 79...\n");
-    binary_tree_print(tree);
+    root->left = binary_tree_node(root, 12);
+    root->left->left = binary_tree_node(root->left, 6);
+    root->left->right = binary_tree_node(root->left, 16);
 
-    tree = bst_remove(tree, 21);
-    printf("Removed 21...\n");
-    binary_tree_print(tree);
+    root->right = binary_tree_node(root, 402);
+    root->right->left = binary_tree_node(root->right, 256);
+    root->right->right = binary_tree_node(root->right, 512);
 
-    tree = bst_remove(tree, 68);
-    printf("Removed 68...\n");
-    binary_tree_print(tree);
-    binary_tree_delete(tree);
+    binary_tree_print(root);
     return (0);
 }
