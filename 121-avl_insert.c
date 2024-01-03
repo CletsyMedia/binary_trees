@@ -72,7 +72,7 @@ avl_t *avl_insert_recursive(avl_t **tree, avl_t *parent,
 		return (*tree);
 
 	/* Calculate the balance factor of the current node */
-	bfactor = balance(*tree);
+	bfactor = balance_factor(*tree);
 
 	/* Perform AVL rotations based on the balance factor to maintain balance */
 	if (bfactor > 1 && (*tree)->left->n > value)
