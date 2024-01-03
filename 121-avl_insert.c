@@ -86,8 +86,7 @@ binary_tree_t *avl_insert_recursive(avl_t **tree, int value)
 	/* Update the height of the current node */
 	size_t left_h = binary_tree_height((*tree)->left);
 	size_t right_h = binary_tree_height((*tree)->right);
-	size_t current_h = ((left_h > right_h) ? left_h : right_h) + 1;
-
+	
 	/* Get the balance factor of the current node */
 	int balance = balance_factor(*tree);
 
