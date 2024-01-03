@@ -13,10 +13,10 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	if (tree)
 	{
 	size_t len_h = 0, rig_h = 0;
-		/* Calculate the height of the left and right subtrees */
-	len_h = tree->left ? 1 + height(tree->left) : 1;
-		rig_h = tree->right ? 1 + height(tree->right) : 1;
-		return ((len_h > rig_h) ? len_h : rig_h);
+	/* Calculate the height of the left and right subtrees */
+	len_h = tree->left ? 1 + binary_tree_height(tree->left) : 1;
+	rig_h = tree->right ? 1 + binary_tree_height(tree->right) : 1;
+	return ((len_h > rig_h) ? len_h : rig_h);
 	}
 	return (0);
 }
@@ -37,8 +37,8 @@ int is_avl_helper(const binary_tree_t *tree, int low, int higher)
 	{
 		if (tree->n < low || tree->n > higher)
 			return (0);
-		left_hgt = height(tree->left);
-		right_hgt = height(tree->right);
+		left_hgt = binary_tree_height(tree->left);
+		right_hgt = binary_tree_height(tree->right);
 		diff = left_hgt > right_hgt ? left_hgt - right_hgt : right_hgt - left_hgt;
 		if (diff > 1)
 			return (0);
