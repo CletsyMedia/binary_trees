@@ -31,7 +31,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	if (!tree)
 	return (0);
 
-	/*
+	/**
 	* Recursively calculate the height of the tree by comparing the
 	* heights of the left and right subtrees and returning the greater
 	* height incremented by 1.
