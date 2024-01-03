@@ -9,42 +9,27 @@
  */
 bst_t *bst_insert(bst_t **tree, int value)
 {
-	/* Check if the double pointer to the root node is not NULL */
-	if (tree != NULL)
-	{
-	bst_t *curr = *tree; /* Initialize current pointer */
+	if (tree == NULL)
+	return (NULL);
 
-	/* Check if the current node is NULL, create a new node as the root */
+	bst_t *curr = *tree;
+
 	if (curr == NULL)
-	{
-	bst_t *new = binary_tree_node(curr, value);
+	return (*tree = binary_tree_node(curr, value));
 
-	return (new == NULL ? NULL : (*tree = new));
-	}
-
-	/* Insert in the left subtree if the value is < the current node's value */
 	if (value < curr->n)
 	{
 	if (curr->left != NULL)
 	return (bst_insert(&curr->left, value));
-
-	bst_t *new = binary_tree_node(curr, value);
-
-	return (new == NULL ? NULL : (curr->left = new));
+	return (curr->left = binary_tree_node(curr, value));
 	}
 
-	/* Insert in the right subtree if the value is > the current node's value */
 	if (value > curr->n)
 	{
 	if (curr->right != NULL)
 	return (bst_insert(&curr->right, value));
-
-	bst_t *new = binary_tree_node(curr, value);
-
-	return (new == NULL ? NULL : (curr->right = new));
-	}
+	return (curr->right = binary_tree_node(curr, value));
 	}
 
-	/* Return NULL if the tree or value is NULL */
 	return (NULL);
 }
