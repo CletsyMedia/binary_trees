@@ -29,15 +29,14 @@ heap_t *heap_insert(heap_t **root, int value)
 
 	for (level = 0, sub = 1; leaves >= sub; sub *= 2, level++)
 	leaves -= sub;
-
 	for (bit = 1 << (level - 1); bit != 1; bit >>= 1)
 	tree = leaves & bit ? tree->right : tree->left;
 	/* Traverse tree to first empty slot */
 	/* Insert the new node */
-	if (!tree->left)
-	tree->left = new_node;
-	else
+	if (!tree->right)
 	tree->right = new_node;
+	else
+	tree->left = new_node;
 	new_node->parent = tree;
 	/* Restore the Max Heap property */
 	flip = new_node;
