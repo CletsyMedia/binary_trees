@@ -39,7 +39,7 @@ int *heap_to_sorted_array(heap_t *heap, size_t *size)
 		return (NULL);
 
 	/* Calculate the size of the resulting array */
-	*size = binary_tree_size(heap) + 1;
+	*size = tree_size(heap) + 1;
 
 	/* Allocate memory for the sorted array */
 	sorted_array = malloc(sizeof(int) * (*size));
