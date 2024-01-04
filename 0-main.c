@@ -3,49 +3,39 @@
 #include "binary_trees.h"
 
 /**
- * basic_tree - Build a basic binary tree
- *
- * Return: A pointer to the created tree
- */
-binary_tree_t *basic_tree(void)
-{
-    binary_tree_t *root;
-
-    root = binary_tree_node(NULL, 98);
-    root->left = binary_tree_node(root, 90);
-    root->right = binary_tree_node(root, 85);
-    root->left->right = binary_tree_node(root->left, 80);
-    root->left->left = binary_tree_node(root->left, 79);
-    return (root);
-}
-
-/**
  * main - Entry point
  *
- * Return: Always 0 (Success)
+ * Return: 0 on success, error code on failure
  */
 int main(void)
 {
-    binary_tree_t *root;
-    int heap;
+    heap_t *root;
+    heap_t *node;
 
-    root = basic_tree();
-
+    root = NULL;
+    node = heap_insert(&root, 98);
+    printf("Inserted: %d\n", node->n);
     binary_tree_print(root);
-    heap = binary_tree_is_heap(root);
-    printf("Is %d heap: %d\n", root->n, heap);
-    heap = binary_tree_is_heap(root->left);
-    printf("Is %d heap: %d\n", root->left->n, heap);
-
-    root->right->left = binary_tree_node(root->right, 97);
+    node = heap_insert(&root, 402);
+    printf("\nInserted: %d\n", node->n);
     binary_tree_print(root);
-    heap = binary_tree_is_heap(root);
-    printf("Is %d heap: %d\n", root->n, heap);
-
-    root = basic_tree();
-    root->right->right = binary_tree_node(root->right, 79);
+    node = heap_insert(&root, 12);
+    printf("\nInserted: %d\n", node->n);
     binary_tree_print(root);
-    heap = binary_tree_is_heap(root);
-    printf("Is %d heap: %d\n", root->n, heap);
+    node = heap_insert(&root, 46);
+    printf("\nInserted: %d\n", node->n);
+    binary_tree_print(root);
+    node = heap_insert(&root, 128);
+    printf("\nInserted: %d\n", node->n);
+    binary_tree_print(root);
+    node = heap_insert(&root, 256);
+    printf("\nInserted: %d\n", node->n);
+    binary_tree_print(root);
+    node = heap_insert(&root, 512);
+    printf("\nInserted: %d\n", node->n);
+    binary_tree_print(root);
+    node = heap_insert(&root, 50);
+    printf("\nInserted: %d\n", node->n);
+    binary_tree_print(root);
     return (0);
 }
