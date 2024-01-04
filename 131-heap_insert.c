@@ -59,9 +59,9 @@ heap_t *find_parent(heap_t *root)
 	parent = root;
 
 	/* Traverse the heap to find the parent for the new node */
-	for (bit = 1 << (heap_size(root) - 2); bit > 0; bit >>= 1)
+	for (bit = heap_size(root) >> 1; bit > 0; bit >>= 1)
 	{
-		parent = (bit & (heap_size(parent) - 1)) ? parent->right : parent->left;
+		parent = (bit & heap_size(root)) ? parent->right : parent->left;
 	}
 
 	return (parent);
