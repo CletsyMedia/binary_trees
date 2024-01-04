@@ -16,6 +16,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	new_node = binary_tree_node(NULL, value);
 	if (!new_node)
 	return (NULL);
+
 	/* If the heap is empty, make the new node the root */
 	if (!*root)
 	{
@@ -28,14 +29,15 @@ heap_t *heap_insert(heap_t **root, int value)
 
 	for (level = 0, sub = 1; leaves >= sub; sub *= 2, level++)
 	leaves -= sub;
+
 	for (bit = 1 << (level - 1); bit != 1; bit >>= 1)
 	tree = leaves & bit ? tree->right : tree->left;
 	/* Traverse tree to first empty slot */
 	/* Insert the new node */
-	if (!tree->right)
-	tree->right = new_node;
-	else
+	if (!tree->left)
 	tree->left = new_node;
+	else
+	tree->right = new_node;
 	new_node->parent = tree;
 	/* Restore the Max Heap property */
 	flip = new_node;
