@@ -2,14 +2,13 @@
 
 /**
  * balance_avl_tree - Balance an AVL tree by performing rotations if necessary
- * @root: Pointer to the root node of the AVL tree
+ * @tree: Pointer to the root node of the AVL tree
  *
  * This function balances the AVL tree rooted at the given node by
  * recursively checking the balance factor of each node and performing
  * rotations if the balance factor is greater than 1 or less than -1.
  * The rotations maintain the AVL tree property and ensure its balance.
  *
- * @root: Pointer to the root node of the AVL tree
  */
 void balance_avl_tree(avl_t **tree)
 {
