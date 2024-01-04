@@ -187,11 +187,4 @@ int heap_extract(heap_t **root);
 /* Convert a binary heap to a sorted array */
 int *heap_to_sorted_array(heap_t *heap, size_t *size);
 
-
-/* More prototypes */
-int find_in_order_successor(bst_t *node);
-int remove_type(bst_t *root);
-void balance_avl_tree(avl_t **root);
-bst_t *bst_remove(bst_t *root, int value);
-
 #endif /* _BINARY_TREES_H */

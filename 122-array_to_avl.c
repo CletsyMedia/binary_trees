@@ -1,16 +1,16 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_delete - Deletes an entire binary tree
+ * binary_tree_del - Deletes an entire binary tree
  * @tree: A pointer to the root node of the tree to delete
  */
-void binary_tree_delete(binary_tree_t *tree)
+void binary_tree_del(binary_tree_t *tree)
 {
 	if (tree == NULL)
 	return;
 
-	binary_tree_delete(tree->left);
-	binary_tree_delete(tree->right);
+	binary_tree_del(tree->left);
+	binary_tree_del(tree->right);
 	free(tree);
 }
 
@@ -36,7 +36,7 @@ avl_t *array_to_avl(int *array, size_t size)
 	if (node == NULL)
 	{
 	/* If avl_insert fails, free the previously allocated memory and return NULL*/
-	binary_tree_delete(root);
+	binary_tree_del(root);
 	return (NULL);
 	}
 	}

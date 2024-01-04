@@ -11,25 +11,21 @@
  *
  * @root: Pointer to the root node of the AVL tree
  */
-void balance_avl_tree(avl_t **root)
+void balance_avl_tree(avl_t **tree)
 {
-	if (root == NULL || *root == NULL)
+	int b_value;
+
+	if (tree == NULL || *tree == NULL)
 		return;
-
-	if ((*root)->left == NULL && (*root)->right == NULL)
+	if ((*tree)->left == NULL && (*tree)->right == NULL)
 		return;
-
-	/* Recursively balance the left and right subtrees */
-	balance_avl_tree(&(*root)->left);
-	balance_avl_tree(&(*root)->right);
-
-	/* Check and perform rotations if necessary */
-	int balance_factor = binary_tree_balance((const binary_tree_t *)*root);
-
-	if (balance_factor > 1)
-		*root = binary_tree_rotate_right((binary_tree_t *)*root);
-	else if (balance_factor < -1)
-		*root = binary_tree_rotate_left((binary_tree_t *)*root);
+	balance_avl_tree(&(*tree)->left);
+	balance_avl_tree(&(*tree)->right);
+	b_value = binary_tree_balance((const binary_tree_t *)*tree);
+	if (b_value > 1)
+		*tree = binary_tree_rotate_right((binary_tree_t *)*tree);
+	else if (b_value < -1)
+		*tree = binary_tree_rotate_left((binary_tree_t *)*tree);
 }
 
 
@@ -105,7 +101,7 @@ int remove_type(bst_t *root)
 	}
 	else
 	{
-		new_value = successor(root->right);
+		new_value = find_in_order_successor(root->right);
 		root->n = new_value;
 		return (new_value);
 	}
@@ -150,7 +146,7 @@ avl_t *avl_remove(avl_t *root, int value)
 
 	if (root_a == NULL)
 		return (NULL);
-	bal(&root_a);
+	balance_avl_tree(&root_a);
 	return (root_a);
 }
 
